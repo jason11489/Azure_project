@@ -1,0 +1,43 @@
+.home {
+    color :#040404;
+}
+
+.header-container {
+    background-color: #fafbfb;
+    text-align: center;
+    position: relative;
+    top: -150px;
+    left: 130px;
+}
+.div-head-text {
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+    margin: 60px auto 20px auto;
+}
+
+.App-header {
+    color: #fff;
+}
+
+.content-container {
+    margin-top: 20px;
+    top : -300px;
+    color:#fafbfb;
+}
+
+.clock-container {
+    position: relative;
+    top: -850px;
+    left: 730px;
+}
+.header-album {
+    height: 65px;
+    width: 100vw;
+    background: #1976D2;
+    color: white;
+    line-height: 65px;
+    font-size: 20px;
+    box-shadow: 0 0 2px rgb(0, 0, 0, 0.4)
+}
+
