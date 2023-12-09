@@ -1,6 +1,6 @@
-import React from 'react'
-import { AiFillCamera } from 'react-icons/ai'
-import './album.css'
+import React from 'react';
+import { AiFillCamera } from 'react-icons/ai';
+import './album.css';
 
 
 
@@ -10,6 +10,9 @@ function Album() {
             <header className='header-album'>
                 <AiFillCamera size={40} style={{ margin: '0 20px 0 20px' }} />
                 Gate Keeper
+                <div>
+                    ClockDisplay
+                </div>
             </header>
             <div className='div-head-text'>
                 <p>
@@ -18,14 +21,6 @@ function Album() {
                 <p>
                     미래관 501호 ITSP 연구실 출입관리 시스템
                 </p>
-                <span>
-                    <button className='btn-main'>
-                        MAIN CALL TO ACTION
-                    </button>
-                    <button className='btn-main-secondary'>
-                        SECONDARY ACTION
-                    </button>
-                </span>
             </div >
 
             <div className='div-image-container'>
