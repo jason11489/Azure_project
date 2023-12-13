@@ -1,10 +1,12 @@
 import React from 'react';
 import { AiFillCamera } from 'react-icons/ai';
 import './album.css';
+import getimage from './getimage';
 
 
 
 function Album() {
+    const file_list = getimage();
     return (
         <>
             <header className='header-album'>
