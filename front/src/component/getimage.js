@@ -6,12 +6,14 @@
 // async function getimage() {
 //         console.log("Azure Blob storage v12 - JavaScript quickstart sample");
 
-//         // Quick start code goes here
-//                 const account = 'raspiotstorage';
-//         const sasToken = '?sv=2022-11-02&ss=bfqt&srt=c&sp=rwdlacupiytfx&se=2023-12-31T14:47:43Z&st=2023-12-12T06:47:43Z&spr=https,http&sig=KbodWIcWTHVupKc3K7fFks1PaMchLyH7tHDk4Padykw%3D';
+//         const accountName = "raspiotstorage";
 
-//   const blobServiceClient = new BlobServiceClient(`https://${account}.blob.core.windows.net/?${sasToken}`);  // create a blobServiceClient
-
+//     const blobServiceClient = BlobServiceClient.fromConnectionString(
+//             "DefaultEndpointsProtocol=https;AccountName=raspiotstorage;AccountKey=OhL3x45bf" +
+//             "zNaMKRCZSyzNOSsVGpfizuqjWwuvuJdoXFjJlIpZtxANUbmRWXENeTxRhTij4WiIevb+ASt9mO+iw=" +
+//             "=;EndpointSuffix=core.windows.net"
+//         );
+        
 
 //         const containerClient = blobServiceClient.getContainerClient(
 //             'raspiotcontainer'
