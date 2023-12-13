@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Album from "./component/album.js";
@@ -6,6 +6,7 @@ import ClockDisplay from './component/clockDisplay.js';
 import './home.css';
 
 function App() {
+  const [imageUrls, setImageUrls] = useState([]);
   return (
     <div className="App">
       <BrowserRouter>

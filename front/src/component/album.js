@@ -1,12 +1,58 @@
-import React from 'react';
+import { Buffer } from 'buffer';
+import React, { useState } from 'react';
 import { AiFillCamera } from 'react-icons/ai';
 import './album.css';
-import getimage from './getimage';
+const { BlobServiceClient } = require("@azure/storage-blob");
+Buffer.from('anything', 'base64');
 
+
+window.Buffer = window.Buffer || require("buffer").Buffer;
 
 
 function Album() {
-    const file_list = getimage();
+    const [imageUrls, setImageUrls] = useState([]);
+
+    const fetchImages = async () => {
+    //     const accountName = "raspiotstorage";
+
+    // const blobServiceClient = BlobServiceClient.fromConnectionString(
+    //         "DefaultEndpointsProtocol=https;AccountName=raspiotstorage;AccountKey=OhL3x45bf" +
+    //         "zNaMKRCZSyzNOSsVGpfizuqjWwuvuJdoXFjJlIpZtxANUbmRWXENeTxRhTij4WiIevb+ASt9mO+iw=" +
+    //         "=;EndpointSuffix=core.windows.net"
+        // );
+        
+        const account = "raspiotstorage";
+        const sasToken = "sp=racwdli&st=2023-12-12T07:12:23Z&se=2023-12-30T15:12:23Z&sv=2022-11-02&sr=c&sig=CRP7OTzlBtn%2BnA1ybxy%2FcJoNCQLM38kPvvl5D90FPso%3D";
+
+        const blobServiceClient = new BlobServiceClient(`https://${account}.blob.core.windows.net/?${sasToken}`);  // create a blobServiceClient
+
+
+    
+    const containerClient = blobServiceClient.getContainerClient(
+            'raspiotcontainer'
+    );
+
+    console.log('\nListing blobs...');
+        const blobItems = containerClient.listBlobsFlat();
+        const urls = [];
+
+    for await (const blob of blobItems) {
+        const tempBlockBlobClient = containerClient.getBlockBlobClient(blob.name); // get the blob url
+        urls.push({name: blob.name, url: tempBlockBlobClient.url}); // push the image name and url to the urls array
+    }
+    
+    setImageUrls(urls);
+    }
+
+    
+
+    const click = async () => {
+        console.log("click");
+        await fetchImages();
+        console.log(imageUrls);
+    }
+
+
     return (
         <>
             <header className='header-album'>
@@ -25,10 +71,15 @@ function Album() {
                 </p>
             </div >
 
+            <div>
+                <h1>Reload image</h1>
+                <button onClick={click}>click</button>
+            </div>
+
             <div className='div-image-container'>
-                {Array.from({ length: 9 }, (_, index) => index).map((e) => (
-                    <div key={e} className='div-card'>
-                        <img src='https://source.unsplash.com/random' />
+                {imageUrls && imageUrls.map((blobItem, index) => (
+                    <div key={index} className='div-card'>
+                        <img src={blobItem.url} />
                         <div className='div-card-text'>
                             <p>
                                 Heading
