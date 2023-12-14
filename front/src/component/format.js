@@ -18,14 +18,17 @@ export default function format(str) {
         case 'Wed':
             data.push('수요일');
             break;
-        case 'Fri':
+       case 'Thu':
             data.push('목요일');
             break;
-        case 'Sat':
+        case 'Fri':
             data.push('금요일');
             break;
-        case 'Sun':
+        case 'Sat':
             data.push('토요일');
+            break;
+        case 'Sun':
+            data.push('일요일');
             break;
 
     }

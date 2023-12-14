@@ -1,9 +1,9 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { AiFillCamera } from 'react-icons/ai';
 import './album.css';
 import format from './format';
-
-import axios from 'axios';
+import Loading from './loading';
 
 
 
@@ -18,6 +18,7 @@ httpCli.defaults.timeout = 25000;
 
 function Album() {
     const [imageUrls, setImageUrls] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const getData = async () => {
     try {
@@ -34,14 +35,17 @@ function Album() {
     
     const click = async () => {
         console.log("click");
+        setLoading(true);
         await getData();
+        setLoading(false);
     }
 
 
     return (
         <>
+            {loading && <Loading />}
             <header className='header-album'>
-                <AiFillCamera size={40} style={{ margin: '0 20px 0 20px' }} />
+                <AiFillCamera size={45} style={{ margin: '0 20px 0 20px' }} />
                 Gate Keeper
                 <div>
                     ClockDisplay
