@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiFillCamera } from 'react-icons/ai';
 import './album.css';
+import format from './format';
 
 import axios from 'axios';
 
@@ -65,31 +66,26 @@ function Album() {
                         <img src={blobItem.url} />
                         <div className='div-card-text'>
                             <p>
-                                {blobItem.name.substr(6,7)}
+                                {blobItem.name.substr(26,4) + "년 " + format(blobItem.name)[1] + " " + blobItem.name.substr(14,2) + "일 " +format(blobItem.name)[0]}
                             </p>
                             <p>
-                                time : {blobItem.name.substr(14,26)}
+                                {blobItem.name.substr(17,2) + "시 " + blobItem.name.substr(20,2) + "분"}
                             </p>
-                            <div>
+                            {/* <div>
                                 <button style={{marginRight: '10px'}}>
                                     VIEW
                                 </button>
                                 <button>
                                     EDIT
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 ))}
             </div>
             <footer>
-                <p>Footer</p>
-                <p>Something here to give the footer a purpose</p>
-                <p>
-                    Copyright &copy;
-                    <a href='/'>Your Website</a>
-                    2022
-                </p>
+                <p>Azure Iot project</p>
+
             </footer>
         </>
     )

@@ -87,11 +87,15 @@
 }
 
 .div-card-text>p:nth-child(1) {
-    font-size: 12px;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .div-card-text>p:nth-child(2) {
-    font-size: 14px;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .div-card-text>div>button {
